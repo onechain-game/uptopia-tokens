@@ -14,7 +14,7 @@ contract Up is ERC20, ERC20Permit, ERC20Burnable {
 
     /// @notice Deploys UP and mints the entire fixed supply to `receiver`.
     /// @param receiver Address that receives the full token supply.
-    constructor(address receiver) ERC20("Uptopia", "UP") {
+    constructor(address receiver) ERC20("Uptopia", "UP") ERC20Permit("Uptopia") {
         if (receiver == address(0)) revert ZeroReceiver();
 
         _mint(receiver, TOTAL_SUPPLY);
